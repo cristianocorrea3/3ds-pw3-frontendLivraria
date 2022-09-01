@@ -1,0 +1,38 @@
+<%- include('../partials/header.ejs')  %>
+
+    <title>LISTAGEM DE CATEGORIAS - LIBRI</title>
+
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <%- include('../partials/menu.ejs')  %>
+
+        <div class="card mt-2">
+            <div class="card-header">LISTAGE DE CATEGORIAS</div>
+        </div>
+
+        <%
+            categorias.forEach(categoria=>{
+        %>
+
+            <div class="card mt-2">
+
+                <div class="card-body">
+                    <%= categoria.nome_categoria %>
+                </div>
+
+                <a href="#" class="btn btn-success mt-1">EDITAR</a>
+                <a href="#" class="btn btn-danger mt-1">EXCLUIR</a>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs')  %>
