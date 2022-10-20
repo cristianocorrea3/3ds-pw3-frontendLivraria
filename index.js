@@ -12,6 +12,12 @@ app.use(express.static('public'));
 //CONFIGURA O EJS COMO VIEW ENGINE (REDENRIZA AS PÁGINAS DE FRONT-END)
 app.set('view engine', 'ejs');
 
+
+//ROTA DE CADASTRO DE CATEGORIAS
+app.get('/cadastroCategorias', (req, res)=>{
+    res.render('categoria/index');
+});
+
 //ROTA DE LISTAGEM DE CATEGORIAS
 app.get('/listagemCategorias', (req, res)=>{
     
