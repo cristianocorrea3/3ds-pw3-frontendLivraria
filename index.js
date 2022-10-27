@@ -39,6 +39,19 @@ app.get('/listagemCategorias', (req, res)=>{
         }); 
     });
 
+    //ROTA DE LISTAGEM DE EDIÇÃO
+    app.get('/formEdicaoCategorias/:id', (req, res)=>{
+        
+        //RECEBE O ID DE CATEGORIA QUE VAI SER EDITADO
+        let {id} = req.params;
+        console.log(id);
+
+        //CHAMADA DO AXIOS PARA A API:
+        const urlListagemCategoria = `http://localhost:3000/listarCategoria/${id}`;
+
+        res.render('categoria/editarCategoria');
+    });
+
 app.listen(3001, ()=>{
     console.log('SERVIDOR RODANDO EM: http://localhost:3001');
 });
