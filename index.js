@@ -44,12 +44,33 @@ app.get('/listagemCategorias', (req, res)=>{
         
         //RECEBE O ID DE CATEGORIA QUE VAI SER EDITADO
         let {id} = req.params;
-        console.log(id);
+        // console.log(id);
 
         //CHAMADA DO AXIOS PARA A API:
         const urlListagemCategoria = `http://localhost:3000/listarCategoria/${id}`;
+        
+        axios.get(urlListagemCategoria)
+        .then(
+            (response)=>{
 
-        res.render('categoria/editarCategoria');
+                let categoria = response.data;
+                res.render('categoria/editarCategoria', {categoria});
+
+            }
+        )
+    });
+
+    //ROTA DE EDIÇÃO
+    app.post('/alterarCategoria', (req, res)=>{
+
+        const urlAlterarCategoria = 'http://localhost:3000/alterarCategoria';
+        console.log(req.body);
+
+        axios.put(urlAlterarCategoria, req.body)
+        .then(
+            res.send('ALTERADO!')
+        )
+
     });
 
 app.listen(3001, ()=>{

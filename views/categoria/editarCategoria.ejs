@@ -15,12 +15,19 @@
         </div>
 
         <div class="card-body">
-            <form action="http://localhost:3000/inserirCategoria" method="post">
+            <form action="http://localhost:3001/alterarCategoria" method="post">
                 
                 <label for="">CATEGORIA</label>
+
+                <input
+                    type="hidden"
+                    name="id" id="id"
+                    value="<%= categoria.id %>"/>
+
                 <input type="text" class="form-control" 
                         name="nome_categoria" id="nome_categoria"
-                        placeholder="DIGITE UMA CATEGORIA">
+                        placeholder="DIGITE UMA CATEGORIA"
+                        value="<%= categoria.nome_categoria %>">
                 
                 <button class="btn btn-success mt-2">EDITAR</button>
             </form>
